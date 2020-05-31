@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Navigasi -->
+        <nav class="sticky-top">
+            <div class="logo">
+                <div>
+                    <img src="img/RID.png" alt="Logo" class="logo">
+                </div>  
+            </div>
+
+            <ul>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Layanan</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Fitur</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Pemilik</a>
+                </li>
+            </ul>
+
+            <div class="menu-toggle">
+                <input type="checkbox"/>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <!-- End Navigasi  -->
+
+        <!-- Beranda -->
+            <div class="container">
+                <div class="row flex-reverse bg2">                    
+                    <div class="col-12 col-sm-6 col-md-6 ">
+                        <h1 class="display-6" id="h1_beranda">Wujudkan Desain Impianmu Bersama Kami</h1>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" id="tombol" href="https://api.whatsapp.com/send?phone=081910805554" role="button">Pesan Sekarang</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <img src="img/undraw_designer_life_w96d.svg" alt="" id="bor">
+                    </div>
+                </div>
+            </div>
+        <!-- End Beranda -->
+
+        <!-- Layanan -->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="display-6" id="h1_layanan">Berbagai Layanan Desain</h1>
+                        <p id="p_layanan">
+                            kami menyediakan berbagai layanan desain yang sesuai dengan kebutuhan anda
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-container bg1">
+                    <div onclick="document.location = '#'">
+                        <p>Logo</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>Spanduk</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>Kartu Nama</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>T-Shirt <br> & <br> Jersey</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>Portofolio <br>&<br> CV</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>Produk <br> Kemasan</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>Web Profil Perusahaan</p>
+                    </div>
+                    <div onclick="document.location = '#'">
+                        <p>UI/UX</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        <!-- End Layanan -->
+
+        <!-- Fitur -->
+            <div class="container">
+                <h1 class="display-6" id="h1_layanan">Kenapa Harus Memilih Kami ?</h1>
+                <br>
+                <br>
+                <div class="row">                    
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <img src="img/undraw_questions_75e0.svg" alt="" id="bor">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <div class="flex-container2">
+                            <div>
+                                <ul>
+                                    <i class="material-icons md-18 md-green margin-icon">done</i> <span class="ukuran"> 100% Desain Original</span> <br>
+                                    <i class="material-icons md-18 md-green margin-icon">done</i> <span class="ukuran">Desain Kekinian dan Kreatif </span> <br>
+                                    <i class="material-icons md-18 md-green margin-icon">done</i> <span class="ukuran">Profesional Dalam Kepuasan Klien</span> <br>
+                                    <i class="material-icons md-18 md-green margin-icon">done</i> <span class="ukuran">Resolusi Desain Tinggi </span> <br>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- End Fitur -->
+
+        <!-- Owner -->
+        <br>
+        <br>
+        <div class="bg3">
+            <div class="container-fluid flex-container3">
+                <div class="row flex-reverse margin-owner">
+                    <div class="col-12 col-sm-6 col-md-10">
+                        <h2 class="text-profil">Muhammad Ridwan Eryansah</h2>
+                        <h4 class="text-profil2">Pemilik</h4>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-2 foto-center">
+                        <img src="img/profil.png" alt="" class="profil-foto">
+                    </div>                    
+                </div>                
+            </div>
+            <footer class="footer-new">RID Design - 2020</footer>
+        </div>
+            
+            
+        <!-- End Owner -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        
+    </body>
+</html>
