@@ -1,2 +1,0 @@
-# riddesign
-Webiste RID Design
