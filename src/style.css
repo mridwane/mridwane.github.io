@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply w-full h-screen bg-center bg-cover bg-no-repeat;
+}
+
+.nav {
+    @apply px-3 py-12 m-12 bg-white rounded-2xl drop-shadow-lg grid gap-4 grid-rows-2;
+}
+
+.nav-link {
+    @apply p-3 rounded-2xl text-primary text-lg;
+}
+
+.active{
+    @apply bg-primary text-white !important;
+}
+
