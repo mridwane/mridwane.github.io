@@ -1,0 +1,18 @@
+---
+import { ModeToggle } from "./ModeToggle";
+---
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="text-xl font-black tracking-tighter uppercase italic">Dev.Porto</a>
+    <div class="flex items-center gap-8">
+      <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest opacity-70">
+        <a href="#about" class="hover:text-red-500 transition">Tentang</a>
+        <a href="#skills" class="hover:text-red-500 transition">Keahlian</a>
+        <a href="#proyek" class="hover:text-red-500 transition">Proyek</a>
+        <a href="#kontak" class="hover:text-red-500 transition">Kontak</a>
+      </div>
+
+      <ModeToggle client:visible />
+    </div>
+  </div>
+</nav>

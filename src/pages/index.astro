@@ -1,0 +1,50 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="DevPorto | Fullstack Developer">
+  <Navbar />
+
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+
+    <section id="proyek" class="bg-slate-50 dark:bg-slate-900/30 py-24 border-t border-slate-100 dark:border-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-4" data-aos="fade-up">
+          <div class="text-center md:text-left">
+            <h2 class="text-sm font-bold tracking-[0.4em] text-red-500 uppercase mb-2">Showcase</h2>
+            <h3 class="text-4xl font-black tracking-tighter">Proyek Terpilih.</h3>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <ProjectCard
+            title="Fintech Dashboard SPA"
+            desc="Sistem manajemen aset dengan real-time data menggunakan Inertia & React."
+            tags={["Laravel", "React"]}
+            delay="0"
+          />
+          <ProjectCard
+            title="E-Commerce System"
+            desc="Aplikasi toko online dengan sistem inventory yang kompleks."
+            tags={["Laravel", "Vue"]}
+            delay="200"
+          />
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
+  <Footer />
+</MainLayout>

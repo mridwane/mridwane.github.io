@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevPorto | Fullstack Developer</title>
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      const theme = getTheme();
+      // Langsung pasang atau hapus class dark
+      document.documentElement.classList[theme === 'dark' ? 'add' : 'remove']('dark');
+
+      if (typeof localStorage !== 'undefined') {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+      }
+    </script>
+  </head>
+  <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+    <slot />
+    <script>
+      import AOS from "aos";
+
+      const initAOS = () => {
+        AOS.init({
+          once: false, // Ubah ke false agar animasi muncul setiap kali di-scroll (opsional)
+          offset: 100,
+          duration: 1000,
+          easing: 'ease-out-cubic',
+          mirror: false // Animasi tidak akan terulang saat scroll ke atas (sesuaikan selera)
+        });
+      };
+
+      // Jalankan saat pertama load
+      initAOS();
+
+      // Jika kamu menggunakan link jangkar (#), AOS kadang perlu di-refresh
+      window.addEventListener('hashchange', () => {
+        setTimeout(() => {
+          AOS.refresh();
+        }, 500); // Beri jeda sedikit agar scroll selesai dulu
+      });
+    </script>
+  </body>
+</html>

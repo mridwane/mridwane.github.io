@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tambahan: pastikan durasi AOS cukup untuk terlihat */
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
