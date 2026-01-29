@@ -1,0 +1,86 @@
+{
+  "title": "Perjalanan Karir",
+  "subtitle": "Pengalaman & Proyek",
+  "items": [
+    {
+      "year": "2026",
+      "company": "PT Behn Meyer Agricare",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem Document Advance yang disesuikan khusus untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "InertiaJS", "ReactJS", "Tailwind CSS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2025",
+      "company": "PT Behn Meyer Chemicals",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem Stock Opname yang disesuikan khusus untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "InertiaJS", "ReactJS", "Tailwind CSS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2025",
+      "company": "PT Behn Meyer Chemicals",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem Shipment Status yang disesuikan khusus untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "InertiaJS", "ReactJS", "Tailwind CSS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2025",
+      "company": "MyBuild.id",
+      "role": "Senior Frontend Web Developer - Freelance",
+      "desc": "Pembuatan antarmuka untuk aplikasi Contractor Management, yang berguna untuk membantu merancang Rancangan Anggaran Biaya (RAB), serta membantu pembuatan pembuatan rancangan antarmuka aplikasi.",
+      "tech": ["ReactJS", "Tailwind CSS", "Git", "Figma"]
+    },
+    {
+      "year": "2024",
+      "company": "PT Behn Meyer Chemicals",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem Customer Complaint untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "InertiaJS", "ReactJS", "Tailwind CSS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2024",
+      "company": "PT Behn Meyer Agricare",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem Cash Advance yang memiliki fitur khusus untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "InertiaJS", "Vuejs", "Tailwind CSS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2023",
+      "company": "PT Behn Meyer Chemicals",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem ONCR (Online New Customer Registration) untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": ["PHP", "Laravel", "Livewire", "Tailwind CSS", "Alpine JS", "MySQL", "Linux", "Git"]
+    },
+    {
+      "year": "2023",
+      "company": "PT Furqan Digital Niaga",
+      "role": "Fullstack Web Developer & UI/UX Designer - Fulltime Remote",
+      "desc": "Redesain sistem internal perusahaan & merancang desain UI/UX untuk kebutuhan perusahaan serta membantu develop ke server.",
+      "tech": [
+        "PHP",
+        "Laravel",
+        "Livewire",
+        "Tailwind CSS",
+        "Alpine JS",
+        "MySQL",
+        "Figma",
+        "Linux",
+        "Git"
+      ]
+    },
+    {
+      "year": "2023",
+      "company": "PT Behn Meyer Chemicals",
+      "role": "Fullstack Web Developer - Freelance",
+      "desc": "Pembuatan sistem SISM (Sistem Informasi Sample Management) untuk kebutuhan perusahaan.",
+      "tech": ["CodeIgniter", "Bootstrap", "jQuery", "PHP", "MySQL"]
+    },
+    {
+      "year": "2022",
+      "company": "Koperasi Bina Husada",
+      "role": "Fullstack Web Developer",
+      "desc": "Pembuatan sistem POS sederhana untuk kebutuhan koperasi.",
+      "tech": ["CodeIgniter", "Bootstrap", "jQuery", "PHP", "MySQL"]
+    }
+  ]
+}
