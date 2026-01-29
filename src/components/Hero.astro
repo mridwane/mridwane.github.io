@@ -1,24 +1,35 @@
 ---
+// Anda bisa memindahkan teks ke JSON seperti sebelumnya jika ingin lebih rapi
 ---
 <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 overflow-hidden">
 
   <div class="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-slate-950">
-    <div class="absolute h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
+    <div class="absolute h-full w-full
+      /* Light Mode: Garis abu-abu lebih kontras (opacity 0.15) */
+      bg-[linear-gradient(to_right,#80808026_1px,transparent_1px),linear-gradient(to_bottom,#80808026_1px,transparent_1px)]
+
+      /* Dark Mode: Biru Neon Halus (opacity 0.2) */
+      dark:bg-[linear-gradient(to_right,#3b82f633_1px,transparent_1px),linear-gradient(to_bottom,#3b82f633_1px,transparent_1px)]
+
+      bg-[size:60px_60px]
+      [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]">
     </div>
+
+    <div class="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.05)_0%,transparent_50%)]"></div>
   </div>
 
   <div data-aos="fade-up" data-aos-duration="1000" class="z-10">
-    <span class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.3em] uppercase bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400 rounded-full mb-6 border border-red-100 dark:border-red-800">
+    <span class="inline-block px-4 py-1 text-[10px] font-bold tracking-[0.3em] uppercase bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 rounded-full mb-6 border border-blue-100 dark:border-blue-800">
       Fullstack Developer
     </span>
     <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-tight">
-      Menghidupkan <span class="gradient-brand">Ide</span><br />Lewat baris kode.
+      Menghidupkan <span class="text-transparent bg-clip-text bg-gradient-to-r px-4 from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Ide</span><br />Lewat <span class="text-transparent bg-clip-text bg-gradient-to-r px-4 from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">Baris Kode.</span>
     </h1>
     <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg md:text-xl mb-10 mx-auto font-medium">
-      Mengubah logika sistem yang kompleks menjadi pengalaman digital yang <span class="text-slate-900 dark:text-white underline decoration-red-500 underline-offset-4 font-bold">intuitif, bersih, dan modern</span>.
+      Mengubah logika sistem yang kompleks menjadi pengalaman digital yang <span class="text-slate-900 dark:text-white underline decoration-blue-500 underline-offset-4 font-bold">intuitif, bersih, dan modern</span>.
     </p>
     <div class="flex flex-wrap justify-center gap-4">
-      <a href="#proyek" class="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-950 text-white rounded-2xl font-bold hover:-translate-y-1 transition shadow-xl">Lihat Proyek</a>
+      <a href="#proyek" class="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-950 text-white rounded-2xl font-bold hover:-translate-y-1 transition shadow-xl shadow-blue-500/10">Lihat Proyek</a>
       <a href="#skills" class="px-8 py-4 border border-slate-200 dark:border-slate-800 rounded-2xl font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition text-sm">Teknologi</a>
     </div>
   </div>

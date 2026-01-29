@@ -1,0 +1,10 @@
+{
+  "title": "Tentang Saya",
+  "subtitle": "Menyatukan Logika dan Estetika.",
+  "description": "Sebagai pengembang web, saya percaya bahwa kekuatan sebuah produk terletak pada detail yang seringkali tak terlihat. Saya mendalami dunia pengembangan dari sisi teknis yang mendalam hingga ke lapisan antarmuka yang presisi.",
+  "stats": [
+    { "value": "3+", "label": "Years Exp." },
+    { "value": "7", "label": "Proyek Selesai" },
+    { "value": "100%", "label": "Commitment" }
+  ]
+}
