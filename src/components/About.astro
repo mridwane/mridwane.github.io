@@ -27,10 +27,10 @@ import profileImage from '../assets/profile.png';
       </div>
     </div>
 
-    <div data-aos="fade-left">
+    <div data-aos="fade-left" class="text-center md:text-left">
       <h2 class="text-sm font-bold tracking-[0.4em] text-blue-600 dark:text-blue-400 uppercase mb-4">{aboutData.title}</h2>
 
-      <h3 class="text-4xl font-black mb-6 leading-tight text-slate-900 dark:text-white">
+      <h3 class="text-4xl font-black mb-6 leading-tight text-slate-900 dark:text-white italic">
         {aboutData.subtitle}
       </h3>
 
@@ -38,16 +38,18 @@ import profileImage from '../assets/profile.png';
         {aboutData.description}
       </p>
 
-      <div class="flex gap-8 p-6 bg-slate-50/50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800 w-fit">
-        {aboutData.stats.slice(1).map((stat, index) => (
-          <Fragment key={index}>
-            <div class="text-left">
-              <p class="font-black text-2xl text-slate-900 dark:text-white">{stat.value}</p>
-              <p class="text-[10px] font-bold uppercase tracking-tighter text-slate-400 dark:text-slate-500">{stat.label}</p>
-            </div>
-            {index === 0 && <div class="w-px h-10 bg-slate-200 dark:bg-slate-700" />}
-          </Fragment>
-        ))}
+      <div class="flex justify-center md:justify-start w-full">
+        <div class="flex gap-8 p-6 items-center bg-slate-50/50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800 w-fit">
+          {aboutData.stats.slice(1).map((stat, index) => (
+            <Fragment key={index}>
+              <div class="text-left">
+                <p class="font-black text-2xl text-slate-900 dark:text-white">{stat.value}</p>
+                <p class="text-[10px] font-bold uppercase tracking-tighter text-slate-400 dark:text-slate-500">{stat.label}</p>
+              </div>
+              {index === 0 && <div class="w-px h-10 bg-slate-200 dark:bg-slate-700" />}
+            </Fragment>
+          ))}
+        </div>
       </div>
     </div>
   </div>
