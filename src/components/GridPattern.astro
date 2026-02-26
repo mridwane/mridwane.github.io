@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<div class:list={["absolute inset-0 -z-10 bg-white dark:bg-slate-950", className]}>
+  <!-- Grid Pattern Background -->
+  <div class:list={[
+    "absolute h-full w-full",
+    "bg-[linear-gradient(to_right,#80808026_1px,transparent_1px),linear-gradient(to_bottom,#80808026_1px,transparent_1px)]",
+    "dark:bg-[linear-gradient(to_right,#3b82f633_1px,transparent_1px),linear-gradient(to_bottom,#3b82f633_1px,transparent_1px)]",
+    "bg-[size:60px_60px]",
+    "[mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+  ]}></div>
+  
+  <div class="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.05)_0%,transparent_50%)]"></div>
+</div>

@@ -15,10 +15,11 @@ import { ModeToggle } from "./ModeToggle";
       <!-- Desktop Menu -->
       <div class="hidden md:flex gap-8 text-[10px] font-semibold uppercase tracking-[0.2em]">
         {[
-          ['Tentang', '#about'],
-          ['Keahlian', '#skills'],
-          ['Pengalaman', '#experience'],
-          ['Kontak', '#kontak']
+          ['Tentang', '/#about'],
+          ['Keahlian', '/#skills'],
+          ['Pengalaman', '/#experience'],
+          ['Showcase', '/showcase'],
+          ['Kontak', '/#kontak']
         ].map(([label, url]) => (
           <a href={url} class="relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
             {label}
@@ -44,10 +45,11 @@ import { ModeToggle } from "./ModeToggle";
   <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center md:hidden">
     <div class="flex flex-col gap-8 text-center">
       {[
-        ['Tentang', '#about'],
-        ['Keahlian', '#skills'],
-        ['Pengalaman', '#experience'],
-        ['Kontak', '#kontak']
+        ['Tentang', '/#about'],
+        ['Keahlian', '/#skills'],
+        ['Pengalaman', '/#experience'],
+        ['Showcase', '/showcase'],
+        ['Kontak', '/#kontak']
       ].map(([label, url]) => (
         <a href={url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           {label}

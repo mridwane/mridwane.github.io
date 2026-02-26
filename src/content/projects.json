@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "customer-complaint-management",
+    "title": "Customer Complaint Management System",
+    "shortDesc": "Transformasi Digital Penanganan Keluhan Pelanggan Berstandar ISO Melalui Kolaborasi Lintas Departemen.",
+    "thumbnail": "/images/projects/complaint-system/thumbnail.jpg",
+    "screenshots": [
+      "/images/projects/complaint-system/screenshot-1.jpg",
+      "/images/projects/complaint-system/screenshot-2.jpg",
+      "/images/projects/complaint-system/screenshot-3.jpg",
+      "/images/projects/complaint-system/screenshot-4.jpg"
+    ],
+    "tags": ["Laravel", "React", "MySQL", "ISO"],
+    "challenge": "- **Data Terfragmentasi**: Pengaduan dicatat secara manual dan tersebar di berbagai media, sehingga sulit untuk melacak status dan progres penyelesaian secara akurat.\n\n- **Kolaborasi Lintas Departemen yang Lemah**: Tidak adanya mekanisme formal untuk menugaskan investigasi antar departemen menyebabkan penanganan keluhan menjadi lambat dan tidak terkoordinasi.\n\n- **Risiko Kepatuhan (Compliance)**: Ketiadaan standar dokumentasi menghambat perusahaan dalam memenuhi persyaratan audit ISO, ditambah dengan proses pelaporan manual yang memakan waktu dan rentan kesalahan.",
+    "challengeDesc": "Sebelum sistem ini diimplementasikan, perusahaan menghadapi kendala operasional yang menghambat kualitas layanan pelanggan:",
+    "solution": "Saya mengembangkan aplikasi manajemen pengaduan berbasis web yang mengintegrasikan alur kerja (workflow) terstruktur dari tahap laporan masuk hingga penyelesaian akhir. Sistem ini dirancang untuk menciptakan transparansi penuh, di mana setiap departemen dapat berkolaborasi dalam satu platform terpusat. Dengan otomatisasi dokumen dan sistem pelacakan audit, solusi ini memastikan setiap keluhan pelanggan ditangani sesuai dengan standar mutu internasional.",
+    "features": [
+      {
+        "title": "Workflow Terintegrasi",
+        "desc": "Mengelola siklus hidup pengaduan secara transparan, mulai dari draf, investigasi, hingga pemberian solusi dan penutupan kasus."
+      },
+      {
+        "title": "Kolaborasi Multi-Departemen",
+        "desc": "Fitur penugasan investigasi yang memungkinkan tim terkait untuk menginput akar masalah (root cause) serta tindakan korektif secara langsung."
+      },
+      {
+        "title": "Dashboard Analitik Real-Time",
+        "desc": "Visualisasi statistik keluhan, tren bulanan, dan distribusi beban kerja departemen untuk mendukung pengambilan keputusan manajemen."
+      },
+      {
+        "title": "Pelaporan Otomatis Standar ISO",
+        "desc": "Generator laporan instan ke format PDF dan Excel yang sudah disesuaikan dengan standar formulir audit ISO."
+      },
+      {
+        "title": "Audit Trail & Keamanan",
+        "desc": "Pencatatan otomatis setiap perubahan status dan aksi pengguna guna menjamin integritas data dan kemudahan penelusuran saat audit."
+      },
+      {
+        "title": "Sistem Manajemen Dokumen",
+        "desc": "Kemudahan mengunggah dokumen pendukung dan menghubungkan pengaduan dengan data faktur (invoice) secara otomatis melalui fitur impor."
+      }
+    ],
+    "techStack": {
+      "Backend": "Laravel 10 (PHP 8.1)",
+      "Frontend": "React 19 & Inertia.js (Modern UI/UX)",
+      "Database": "MySQL 8.0",
+      "Styling": "Tailwind CSS",
+      "Tools": "Docker, DomPDF, Maatwebsite Excel"
+    },
+    "result": "- **Efisiensi Operasional**: Memangkas waktu pembuatan laporan dan koordinasi antar departemen hingga lebih dari 60% melalui otomasi sistem.\n\n- **Akurasi & Transparansi**: Menghilangkan risiko hilangnya data pengaduan dan memberikan visibilitas penuh kepada manajemen terhadap kinerja layanan pelanggan.\n\n- **Kesiapan Audit ISO**: Memastikan perusahaan selalu siap menghadapi audit dengan dokumentasi yang terstandarisasi, rapi, dan mudah diakses kapan saja.\n\n- **Peningkatan SLA**: Mempercepat waktu penyelesaian keluhan pelanggan berkat alur penugasan yang jelas dan sistem pengingat yang terintegrasi.",
+    "resultDesc": "Implementasi sistem ini memberikan dampak signifikan terhadap operasional perusahaan."
+  },
+  {
+    "slug": "soa-management-system",
+    "title": "SOA Management System",
+    "shortDesc": "Digitalisasi Pengelolaan Piutang untuk Akselerasi Arus Kas dan Efisiensi Tim Finance.",
+    "thumbnail": "/images/projects/soa-management/thumbnail.jpg",
+    "screenshots": [
+      "/images/projects/soa-management/screenshot-1.jpg",
+      "/images/projects/soa-management/screenshot-2.jpg",
+      "/images/projects/soa-management/screenshot-3.jpg",
+      "/images/projects/soa-management/screenshot-4.jpg"
+    ],
+    "tags": ["Laravel", "React", "MySQL", "Finance"],
+    "challenge": "- **Proses Manual yang Tidak Efisien**: Pengolahan data piutang bulanan memakan banyak waktu karena dilakukan secara manual, mulai dari input data hingga distribusi ke pelanggan.\n\n- **Visibilitas Data Rendah**: Manajemen kesulitan memantau posisi piutang secara real-time, analisis penuaan piutang (aging analysis), maupun peringkat pelanggan dengan piutang terbesar.\n\n- **Data Terfragmentasi**: Informasi kontak pelanggan dan catatan khusus (memo) tersebar di berbagai file Excel yang terpisah, sehingga menyulitkan koordinasi dan penelusuran data.",
+    "challengeDesc": "Sebelum sistem ini diimplementasikan, tim Finance & Accounting pada perusahaan manufaktur menghadapi hambatan operasional yang berdampak pada produktivitas:",
+    "solution": "Saya membangun aplikasi web terpusat yang berfungsi sebagai Single Source of Truth untuk seluruh data piutang. Solusi ini mengintegrasikan otomasi impor data dengan dasbor analitik interaktif. Dengan pendekatan Modern Monolith (Laravel + React), sistem ini menawarkan performa yang cepat, keamanan tingkat tinggi, dan kemudahan penggunaan bagi tim operasional dalam mengelola siklus Accounts Receivable (AR) dari awal hingga akhir.",
+    "features": [
+      {
+        "title": "Otomasi Impor Excel",
+        "desc": "Fitur drag-and-drop yang mampu memproses dan memvalidasi puluhan kolom data secara otomatis, memangkas waktu kerja dari hitungan jam menjadi hitungan detik."
+      },
+      {
+        "title": "Dasbor Analitik Real-Time",
+        "desc": "Visualisasi data yang mencakup total piutang, tren bulanan, hingga peringkat 10 pelanggan teratas untuk mendukung pengambilan keputusan strategis."
+      },
+      {
+        "title": "Analisis Penuaan Piutang (Aging)",
+        "desc": "Pemantauan otomatis kategori umur piutang (0 hingga >270 hari) guna mengidentifikasi risiko keterlambatan pembayaran lebih dini."
+      },
+      {
+        "title": "Manajemen Data Terpusat",
+        "desc": "Basis data pelanggan yang komprehensif, mencakup informasi kontak hingga riwayat memo khusus untuk setiap transaksi."
+      },
+      {
+        "title": "Keamanan OTP & Akses Berjenjang",
+        "desc": "Autentikasi aman melalui kode OTP email dan pembatasan hak akses (Role-Based Access) guna melindungi kerahasiaan data finansial perusahaan."
+      }
+    ],
+    "techStack": {
+      "Backend": "Laravel 10 (PHP 8.1)",
+      "Frontend": "React 19 & Inertia.js (Modern Monolith)",
+      "Database": "MySQL 8.0",
+      "Styling": "Tailwind CSS",
+      "Visualization": "Recharts",
+      "Tools": "Laravel Excel, Docker"
+    },
+    "result": "- **Efisiensi Operasional**: Otomasi proses bulanan berhasil memangkas waktu administratif tim Finance secara signifikan.\n\n- **Akurasi Data**: Menghilangkan risiko human error dalam input data melalui sistem validasi otomatis saat proses impor.\n\n- **Transparansi Keuangan**: Manajemen memiliki akses instan terhadap kesehatan piutang perusahaan, mempercepat tindak lanjut penagihan, dan mengoptimalkan arus kas (cash flow).\n\n- **Kesiapan Audit**: Semua data tersimpan secara terstruktur dan terdokumentasi dengan baik, memudahkan proses audit internal maupun eksternal.",
+    "resultDesc": "Sistem ini membawa transformasi nyata bagi departemen Finance dalam mengelola piutang."
+  },
+  {
+    "slug": "stock-opname-enterprise",
+    "title": "Stock Opname Enterprise System",
+    "shortDesc": "Digitalisasi Inventaris Terpadu untuk Akurasi Stok Real-Time dan Kepatuhan Audit.",
+    "thumbnail": "/images/projects/stock-opname/thumbnail.jpg",
+    "screenshots": [
+      "/images/projects/stock-opname/screenshot-1.jpg",
+      "/images/projects/stock-opname/screenshot-2.jpg",
+      "/images/projects/stock-opname/screenshot-3.jpg",
+      "/images/projects/stock-opname/screenshot-4.jpg"
+    ],
+    "tags": ["Laravel", "React", "MySQL", "Enterprise"],
+    "challenge": "- **Fragmentasi Data & Proses Manual**: Data stok tersebar di berbagai sistem tanpa sumber tunggal (single source of truth), menyebabkan proses pencocokan stok (stocktaking) memakan waktu lama (5-7 hari) dan melibatkan koordinasi lintas departemen yang rumit.\n\n- **Risiko Human Error & Visibilitas Rendah**: Pencatatan manual memicu tingginya tingkat kesalahan input (mencapai 5%), sementara manajemen tidak memiliki akses real-time untuk memantau progres lapangan.\n\n- **Kendala Audit**: Pencatatan perubahan data tidak terstruktur, sehingga menyulitkan proses audit internal dan pembuatan laporan yang memakan waktu hingga 3 hari kerja.",
+    "challengeDesc": "Sebagai perusahaan distribusi bahan kimia industrial, Behn Meyer Chemicals menghadapi hambatan kritis dalam manajemen inventaris manual yang berdampak pada efisiensi operasional:",
+    "solution": "Saya mengembangkan sistem inventaris tingkat enterprise yang mengotomatiskan seluruh alur kerja stock opname. Solusi ini mengintegrasikan data dari berbagai sumber (WMS dan Non-WMS) ke dalam satu platform terpusat. Dengan pendekatan User-Centric, sistem ini dirancang untuk mempermudah koordinasi antara manajer, supervisor, dan staf lapangan melalui alur kerja yang terstandarisasi, transparan, dan aman.",
+    "features": [
+      {
+        "title": "Intelligent Data Import",
+        "desc": "Mengeliminasi input manual dengan sistem unggah dokumen (Excel/CSV) yang dilengkapi validasi otomatis untuk menjaga kualitas data."
+      },
+      {
+        "title": "Automated Workflow & Task Assignment",
+        "desc": "Sistem penugasan terstruktur yang memungkinkan supervisor membagi tugas berdasarkan area atau grup barang secara spesifik."
+      },
+      {
+        "title": "Real-time Monitoring Dashboard",
+        "desc": "Dasbor interaktif yang memberikan visibilitas instan bagi manajemen untuk memantau progres fisik dan status pengerjaan di lapangan."
+      },
+      {
+        "title": "Verification Module (Mobile Friendly)",
+        "desc": "Antarmuka khusus untuk pelaksana di lapangan yang mendukung validasi perhitungan stok secara langsung guna meminimalkan selisih (discrepancy)."
+      },
+      {
+        "title": "Enterprise Standard Reporting",
+        "desc": "Fitur ekspor laporan otomatis (Form A & B) yang sesuai dengan format standar perusahaan dan siap digunakan untuk kebutuhan audit eksternal."
+      },
+      {
+        "title": "Role-Based Access Control (RBAC)",
+        "desc": "Sistem keamanan berlapis yang memastikan setiap pengguna hanya memiliki akses sesuai fungsi jabatannya, menjaga integritas data perusahaan."
+      }
+    ],
+    "techStack": {
+      "Backend": "Laravel 10 (PHP 8.1)",
+      "Frontend": "React 19 & Inertia.js",
+      "Styling": "Tailwind CSS v4 & Radix UI",
+      "Database": "MySQL 8.0",
+      "Infrastructure": "Docker"
+    },
+    "result": "- **Akselerasi Operasional**: Waktu proses stock opname berkurang 60% (dari 7 hari menjadi hanya 2-3 hari).\n\n- **Efisiensi Pelaporan**: Pembuatan laporan yang sebelumnya memakan waktu 3 hari kini tersedia secara Real-Time.\n\n- **Akurasi Data Maksimal**: Meningkatkan akurasi data stok hingga 99.5% dan menekan angka kesalahan (error rate) hingga 90%.\n\n- **Kesiapan Audit**: Memenuhi standar kepatuhan audit internal melalui catatan aktivitas (audit trail) yang komprehensif dan terstruktur.",
+    "resultDesc": "Implementasi sistem ini memberikan dampak signifikan terhadap performa bisnis perusahaan:"
+  }
+]
