@@ -1,5 +1,19 @@
 ---
 import { ModeToggle } from "./ModeToggle";
+
+interface MenuItem {
+  label: string;
+  url: string;
+}
+
+const menuItems: MenuItem[] = [
+  { label: 'Tentang', url: '/#about' },
+  { label: 'Keahlian', url: '/#skills' },
+  { label: 'Pengalaman', url: '/#experience' },
+  { label: 'Project', url: '/project' },
+  { label: 'Showcase', url: '/showcase' },
+  { label: 'Kontak', url: '/#kontak' },
+];
 ---
 <nav class="fixed top-0 w-screen z-50 transition-all duration-300">
   <div class="absolute inset-0 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-blue-500/10 shadow-sm"></div>
@@ -12,18 +26,10 @@ import { ModeToggle } from "./ModeToggle";
     </a>
 
     <div class="flex items-center gap-4">
-      <!-- Desktop Menu -->
       <div class="hidden md:flex gap-8 text-[10px] font-semibold uppercase tracking-[0.2em]">
-        {[
-          ['Tentang', '/#about'],
-          ['Keahlian', '/#skills'],
-          ['Pengalaman', '/#experience'],
-          ['Project', '/project'],
-          ['Showcase', '/showcase'],
-          ['Kontak', '/#kontak']
-        ].map(([label, url]) => (
-          <a href={url} class="relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
-            {label}
+        {menuItems.map((item) => (
+          <a href={item.url} class="relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
+            {item.label}
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(37,99,235,0.6)]"></span>
           </a>
         ))}
@@ -33,7 +39,6 @@ import { ModeToggle } from "./ModeToggle";
         <ModeToggle client:visible />
       </div>
 
-      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50 group" aria-label="Toggle Menu">
         <span class="block w-6 h-0.5 bg-slate-900 dark:bg-white transition-all duration-300 origin-center group-hover:bg-blue-600 dark:group-hover:bg-blue-400"></span>
         <span class="block w-6 h-0.5 bg-slate-900 dark:bg-white transition-all duration-300 origin-center group-hover:bg-blue-600 dark:group-hover:bg-blue-400"></span>
@@ -42,19 +47,11 @@ import { ModeToggle } from "./ModeToggle";
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
   <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center md:hidden">
     <div class="flex flex-col gap-8 text-center">
-      {[
-        ['Tentang', '/#about'],
-        ['Keahlian', '/#skills'],
-        ['Pengalaman', '/#experience'],
-        ['Project', '/project'],
-        ['Showcase', '/showcase'],
-        ['Kontak', '/#kontak']
-      ].map(([label, url]) => (
-        <a href={url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          {label}
+      {menuItems.map((item) => (
+        <a href={item.url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          {item.label}
         </a>
       ))}
     </div>
@@ -66,18 +63,15 @@ import { ModeToggle } from "./ModeToggle";
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
   const spans = menuBtn?.querySelectorAll('span');
-
   let isMenuOpen = false;
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
 
-    // Toggle Menu Visibility
     if (isMenuOpen) {
       mobileMenu?.classList.remove('translate-x-full');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
 
-      // Animate Burger to X
       if (spans) {
         spans[0].classList.add('rotate-45', 'translate-y-2');
         spans[1].classList.add('opacity-0');
@@ -85,9 +79,8 @@ import { ModeToggle } from "./ModeToggle";
       }
     } else {
       mobileMenu?.classList.add('translate-x-full');
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.style.overflow = '';
 
-      // Animate X back to Burger
       if (spans) {
         spans[0].classList.remove('rotate-45', 'translate-y-2');
         spans[1].classList.remove('opacity-0');
@@ -98,7 +91,6 @@ import { ModeToggle } from "./ModeToggle";
 
   menuBtn?.addEventListener('click', toggleMenu);
 
-  // Close menu when clicking a link
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (isMenuOpen) toggleMenu();
@@ -107,7 +99,6 @@ import { ModeToggle } from "./ModeToggle";
 </script>
 
 <style>
-  /* Menambahkan efek glassmorphism yang lebih kuat saat scroll jika diperlukan via JS */
   nav.scrolled {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;

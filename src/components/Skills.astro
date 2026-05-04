@@ -1,6 +1,5 @@
 ---
-// Import data eksternal
-import { skillsData } from '../content/skill.jsx';
+import { skillsData } from '../data/skills';
 import { FaDatabase } from 'react-icons/fa';
 ---
 
@@ -12,7 +11,7 @@ import { FaDatabase } from 'react-icons/fa';
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(120px,_auto)]">
 
-    <div class="md:col-span-2 md:row-span-3 bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-blue-700 dark:to-indigo-900 rounded-[2.5rem] p-8 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20" data-aos="zoom-in">
+    <div class="md:col-span-2 md:row-span-3 bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-blue-700 dark:to-indigo-900 rounded-2xl p-8 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20" data-aos="zoom-in">
       <div class="relative z-10 flex flex-col h-full justify-between">
         <div>
           <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest">{skillsData.mainFocus.label}</span>
@@ -28,7 +27,7 @@ import { FaDatabase } from 'react-icons/fa';
       <skillsData.mainFocus.Icon size={180}  className="absolute -bottom-10 -right-10 opacity-10 group-hover:rotate-12 transition-transform duration-700 pointer-events-none" />
     </div>
 
-    <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-[2.5rem] p-8" data-aos="zoom-in" data-aos-delay="100">
+    <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-2xl p-8" data-aos="zoom-in" data-aos-delay="100">
       <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-slate-900 dark:text-white">
         <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span> Frontend Ecosystem
       </h3>
@@ -42,13 +41,13 @@ import { FaDatabase } from 'react-icons/fa';
     </div>
 
     {skillsData.design.map((item, index) => (
-      <div class={`md:col-span-1 ${item.bg} border ${item.border} rounded-[2rem] p-6 flex flex-col justify-between group ${item.hover} transition-all`} data-aos="zoom-in" data-aos-delay={200 + (index * 100)}>
+      <div class={`md:col-span-1 ${item.bg} border ${item.border} rounded-2xl p-6 flex flex-col justify-between group ${item.hover} transition-all`} data-aos="zoom-in" data-aos-delay={200 + (index * 100)}>
         <item.Icon size={item.sizeIcon} className="group-hover:rotate-12 transition" />
         <h4 class={`font-bold ${item.text}`}>{item.name}</h4>
       </div>
     ))}
 
-  <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-[2.5rem] p-8 overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
+  <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-2xl p-8 overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
       <div class="relative z-20 text-slate-600">
         <h3 class="text-2xl font-bold mb-6 dark:text-white">Operations</h3>
         <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-sm font-bold uppercase tracking-tight text-slate-600 dark:text-slate-400">
@@ -62,7 +61,7 @@ import { FaDatabase } from 'react-icons/fa';
       <span class="absolute -bottom-5 -right-5 text-8xl opacity-10 font-black text-slate-500 uppercase italic pointer-events-none">Root</span>
     </div>
 
-    <div class="md:col-span-2 bg-slate-100 dark:bg-slate-900 border border-transparent dark:border-slate-800 rounded-[2rem] p-6 flex items-center justify-between group" data-aos="zoom-in" data-aos-delay="500">
+    <div class="md:col-span-2 bg-slate-100 dark:bg-slate-900 border border-transparent dark:border-slate-800 rounded-2xl p-6 flex items-center justify-between group" data-aos="zoom-in" data-aos-delay="500">
       <span class="text-[10px] font-black uppercase opacity-60 dark:opacity-40 tracking-widest text-slate-600 dark:text-slate-400">
         Database: {skillsData.database}
       </span>

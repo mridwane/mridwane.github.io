@@ -4,11 +4,11 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import GridPattern from '../components/GridPattern.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { API_CONFIG } from '../config/index';
 
-const VERCEL_API_URL = 'https://api.vercel.com/v6/projects';
 const VERCEL_TOKEN = import.meta.env.TOKEN_VERCEL;
 
-const response = await fetch(`${VERCEL_API_URL}?limit=12`, {
+const response = await fetch(`${API_CONFIG.VERCEL.BASE_URL}?limit=${API_CONFIG.VERCEL.LIMIT}`, {
   headers: {
     'Authorization': `Bearer ${VERCEL_TOKEN}`,
     'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const projects = vercelProjects.map((p: typeof vercelProjects[0]) => {
     tags: [p.framework || 'Next.js'],
     liveUrl: url,
   };
-}).filter(p => p.src).slice(0, 12);
+}).filter(p => p.src).slice(0, API_CONFIG.VERCEL.LIMIT);
 ---
 
 <MainLayout title="Showcase | DevPorto">
@@ -46,7 +46,7 @@ const projects = vercelProjects.map((p: typeof vercelProjects[0]) => {
           Showcase <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-400 dark:to-pink-300">Projects</span>
         </h1>
         <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg mx-auto">
-          Live preview of my deployed projects on Vercel.
+          Eksplorasi ide dan kreativitas melalui koleksi proyek hobi saya. Halaman ini menampilkan berbagai eksperimen teknis dan solusi kreatif yang saya bangun di waktu luang.
         </p>
       </div>
 

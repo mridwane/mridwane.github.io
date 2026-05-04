@@ -1,18 +1,12 @@
-// src/data/skills.js
 import {
   SiLaravel,
-  SiInertia,
   SiReact,
   SiVuedotjs,
   SiTailwindcss,
-  SiPhp,
-  SiMysql,
-  SiFigma,
   SiDocker,
   SiLinux,
   SiGit,
   SiCodeigniter,
-  SiLivewire,
   SiAstro,
   SiNginx,
   SiApache,
@@ -20,8 +14,27 @@ import {
   SiJquery,
   SiFilament,
 } from "react-icons/si";
-import { HiOutlineDesktopComputer } from "react-icons/hi";
-import { FaDatabase } from "react-icons/fa";
+
+interface SkillItem {
+  name: string;
+  Icon: React.ComponentType<{ size?: number; className?: string }>;
+  hover?: string;
+}
+
+interface SkillCategory {
+  label: string;
+  title: string;
+  desc: string;
+  tags: string[];
+  Icon: React.ComponentType<{ size?: number; className?: string }>;
+}
+
+interface DesignSkill extends SkillItem {
+  sizeIcon: number;
+  bg: string;
+  border: string;
+  text: string;
+}
 
 export const skillsData = {
   mainFocus: {
@@ -29,8 +42,8 @@ export const skillsData = {
     title: "Laravel & Inertia.js",
     desc: "Pengembangan SPA modern tanpa kompleksitas API yang berlebihan.",
     tags: ["PHP 8.x", "MySQL"],
-    Icon: SiLaravel, // Logo Asli Laravel
-  },
+    Icon: SiLaravel,
+  } as SkillCategory,
   frontend: [
     { name: "ReactJs", Icon: SiReact, hover: "hover:text-blue-600" },
     { name: "Vuejs", Icon: SiVuedotjs, hover: "hover:text-blue-600" },
@@ -38,7 +51,7 @@ export const skillsData = {
     { name: "jQuery", Icon: SiJquery, hover: "hover:text-blue-600" },
     { name: "Bootstrap", Icon: SiBootstrap, hover: "hover:text-blue-600" },
     { name: "Tailwind CSS", Icon: SiTailwindcss, hover: "hover:text-blue-600" },
-  ],
+  ] as SkillItem[],
   design: [
     {
       name: "Filament",
@@ -58,13 +71,13 @@ export const skillsData = {
       text: "text-red-900 dark:text-red-300",
       hover: "hover:border-red-400",
     },
-  ],
+  ] as DesignSkill[],
   ops: [
     { name: "Linux Server", Icon: SiLinux, hover: "hover:text-blue-600" },
     { name: "Nginx", Icon: SiNginx, hover: "hover:text-blue-600" },
     { name: "Apache", Icon: SiApache, hover: "hover:text-blue-600" },
     { name: "Docker", Icon: SiDocker, hover: "hover:text-blue-600" },
     { name: "Git", Icon: SiGit, hover: "hover:text-blue-600" },
-  ],
+  ] as SkillItem[],
   database: "Sqlite / MySQL",
 };

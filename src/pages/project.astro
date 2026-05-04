@@ -4,13 +4,6 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import GridPattern from '../components/GridPattern.astro';
 import projects from '../content/projects.json';
-
-const getTheme = () => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme');
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
 ---
 
 <MainLayout title="Project | DevPorto">
@@ -40,7 +33,7 @@ const getTheme = () => {
             data-aos="fade-up"
             data-aos-delay={String(index * 100)}
           >
-               <div class="aspect-video bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] mb-6 overflow-hidden relative border border-slate-200 dark:border-blue-500/10 transition-all duration-500 shadow-sm group-hover:shadow-2xl group-hover:shadow-blue-500/10 group-hover:-translate-y-2">
+               <div class="aspect-video bg-slate-100 dark:bg-slate-900 rounded-2xl mb-6 overflow-hidden relative border border-slate-200 dark:border-blue-500/10 transition-all duration-500 shadow-sm group-hover:shadow-2xl group-hover:shadow-blue-500/10 group-hover:-translate-y-2">
                  <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                  
                  <div class="thumbnail-placeholder absolute inset-0 flex items-center justify-center font-black text-slate-300 dark:text-slate-700 text-xl uppercase tracking-tighter italic hidden">
