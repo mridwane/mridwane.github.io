@@ -6,7 +6,7 @@ import GridPattern from '../components/GridPattern.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { API_CONFIG } from '../config/index';
 
-const VERCEL_TOKEN = import.meta.env.TOKEN_VERCEL;
+const VERCEL_TOKEN = import.meta.env.VERCEL_TOKEN;
 
 const response = await fetch(`${API_CONFIG.VERCEL.BASE_URL}?limit=${API_CONFIG.VERCEL.LIMIT}`, {
   headers: {
