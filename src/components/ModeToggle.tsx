@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-// Ganti lucide-react menjadi react-icons/io5
 import { IoSunny, IoMoon } from "react-icons/io5";
-import AOS from "aos";
 
 export function ModeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -26,10 +24,7 @@ export function ModeToggle() {
       setIsDark(true);
     }
 
-    // Memberi sedikit jeda agar DOM terupdate sebelum AOS menghitung ulang posisi
-    setTimeout(() => {
-      AOS.refresh();
-    }, 150);
+    dispatchEvent(new CustomEvent('theme-toggle'));
   };
 
   return (

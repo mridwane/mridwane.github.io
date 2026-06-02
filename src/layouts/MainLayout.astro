@@ -50,6 +50,10 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
       window.addEventListener('hashchange', () => {
         setTimeout(() => AOS.refresh(), 500);
       });
+
+      window.addEventListener('theme-toggle', () => {
+        setTimeout(() => AOS.refresh(), 150);
+      });
     </script>
   </body>
 </html>

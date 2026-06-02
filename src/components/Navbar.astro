@@ -64,12 +64,14 @@ const menuItems: MenuItem[] = [
   const mobileLinks = document.querySelectorAll('.mobile-link');
   const spans = menuBtn?.querySelectorAll('span');
   let isMenuOpen = false;
+  let previousOverflow = '';
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
 
     if (isMenuOpen) {
       mobileMenu?.classList.remove('translate-x-full');
+      previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
 
       if (spans) {
@@ -79,7 +81,8 @@ const menuItems: MenuItem[] = [
       }
     } else {
       mobileMenu?.classList.add('translate-x-full');
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
+      previousOverflow = '';
 
       if (spans) {
         spans[0].classList.remove('rotate-45', 'translate-y-2');
@@ -96,6 +99,19 @@ const menuItems: MenuItem[] = [
       if (isMenuOpen) toggleMenu();
     });
   });
+
+  const nav = document.querySelector('nav');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
 </script>
 
 <style>
