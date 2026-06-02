@@ -3,17 +3,214 @@ interface Props {
   class?: string;
 }
 const { class: className } = Astro.props;
+
+const stars = Array.from({ length: 200 }, (_, i) => {
+  const seed = i * 137.508;
+  const x = ((Math.sin(seed) * 0.5 + 0.5) * 1000) % 1000;
+  const y = ((Math.cos(seed * 1.3) * 0.5 + 0.5) * 800) % 800;
+  const r = 0.3 + (i % 3) * 0.3;
+  const op = 0.15 + (i % 5) * 0.08;
+  return { x: Math.round(x), y: Math.round(y), r, opacity: Math.min(op, 0.5) };
+});
 ---
 
-<div class:list={["fixed inset-0 -z-10 bg-white dark:bg-slate-950", className]}>
-  <!-- Polka Dots Pattern -->
+<div class:list={["fixed inset-0 -z-10 overflow-hidden bg-white dark:bg-slate-950", className]}>
+  <style>
+    @keyframes constellation-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    @keyframes star-twinkle {
+      0%, 100% { opacity: var(--twinkle-base); }
+      50% { opacity: calc(var(--twinkle-base) + 0.15); }
+    }
+    .sgr-pulse {
+      animation: constellation-pulse 4s ease-in-out infinite;
+    }
+    .bg-star {
+      animation: star-twinkle 3s ease-in-out infinite;
+      animation-delay: var(--twinkle-delay);
+    }
+  </style>
+
   <div class:list={[
-    "absolute h-full w-full",
-    "bg-[radial-gradient(#80808026_2px,transparent_2px)]",
-    "dark:bg-[radial-gradient(#3b82f620_2px,transparent_2px)]",
-    "bg-[size:40px_40px]",
-    "[mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+    "absolute inset-0",
+    "bg-[radial-gradient(#8080800a_1px,transparent_1px)]",
+    "dark:bg-[radial-gradient(#3b82f608_1px,transparent_1px)]",
+    "bg-[size:40px_40px]"
   ]}></div>
-  
-  <div class="absolute inset-0 dark:bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.05)_0%,transparent_50%)]"></div>
+
+  <svg
+    class="absolute inset-0 w-full h-full"
+    viewBox="0 0 1000 800"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <radialGradient id="glow">
+        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+        <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+      </radialGradient>
+      <radialGradient id="glow-dark">
+        <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#60a5fa" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <!-- Background Stars (light mode) -->
+    <g class="block dark:hidden">
+      {stars.map((s, i) => (
+        <circle
+          key={i}
+          cx={s.x}
+          cy={s.y}
+          r={s.r * 1.5}
+          fill="#808080"
+          opacity={s.opacity * 0.75}
+          class="bg-star"
+          style={`--twinkle-base: ${s.opacity * 0.75}; --twinkle-delay: ${(i * 0.3) % 5}s`}
+        />
+      ))}
+    </g>
+
+    <!-- Background Stars (dark mode) -->
+    <g class="hidden dark:block">
+      {stars.map((s, i) => (
+        <circle
+          key={i}
+          cx={s.x}
+          cy={s.y}
+          r={s.r * 2}
+          fill="#60a5fa"
+          opacity={s.opacity * 0.8}
+          class="bg-star"
+          style={`--twinkle-base: ${s.opacity * 0.8}; --twinkle-delay: ${(i * 0.3) % 5}s`}
+        />
+      ))}
+    </g>
+
+    <!-- Sagittarius Constellation -->
+    <g transform="translate(129, 100.5) scale(0.7)">
+    <g class="sgr-pulse">
+      <!-- Lines (dark mode) -->
+      <g class="hidden dark:block" stroke="#60a5fa" stroke-width="0.6" stroke-dasharray="5 5" opacity="0.5">
+        <line x1="400" y1="240" x2="370" y2="380" />
+        <line x1="370" y1="380" x2="420" y2="560" />
+        <line x1="400" y1="240" x2="580" y2="260" />
+        <line x1="580" y1="260" x2="550" y2="550" />
+        <line x1="550" y1="550" x2="420" y2="560" />
+        <line x1="370" y1="380" x2="200" y2="440" />
+        <line x1="200" y1="440" x2="420" y2="560" />
+        <line x1="580" y1="260" x2="700" y2="190" />
+        <line x1="700" y1="190" x2="780" y2="330" />
+        <line x1="780" y1="330" x2="650" y2="380" />
+        <line x1="650" y1="380" x2="580" y2="260" />
+        <line x1="700" y1="190" x2="650" y2="380" />
+        <line x1="400" y1="240" x2="490" y2="110" />
+        <line x1="200" y1="440" x2="100" y2="500" />
+        <line x1="100" y1="500" x2="80" y2="480" />
+        <line x1="100" y1="500" x2="90" y2="530" />
+        <line x1="90" y1="530" x2="120" y2="520" />
+      </g>
+
+      <!-- Lines (light mode) -->
+      <g class="block dark:hidden" stroke="#3b82f6" stroke-width="0.6" stroke-dasharray="5 5" opacity="0.5">
+        <line x1="400" y1="240" x2="370" y2="380" />
+        <line x1="370" y1="380" x2="420" y2="560" />
+        <line x1="400" y1="240" x2="580" y2="260" />
+        <line x1="580" y1="260" x2="550" y2="550" />
+        <line x1="550" y1="550" x2="420" y2="560" />
+        <line x1="370" y1="380" x2="200" y2="440" />
+        <line x1="200" y1="440" x2="420" y2="560" />
+        <line x1="580" y1="260" x2="700" y2="190" />
+        <line x1="700" y1="190" x2="780" y2="330" />
+        <line x1="780" y1="330" x2="650" y2="380" />
+        <line x1="650" y1="380" x2="580" y2="260" />
+        <line x1="700" y1="190" x2="650" y2="380" />
+        <line x1="400" y1="240" x2="490" y2="110" />
+        <line x1="200" y1="440" x2="100" y2="500" />
+        <line x1="100" y1="500" x2="80" y2="480" />
+        <line x1="100" y1="500" x2="90" y2="530" />
+        <line x1="90" y1="530" x2="120" y2="520" />
+      </g>
+    </g>
+
+    <!-- Sagittarius Stars (light mode) -->
+    <g class="sgr-pulse block dark:hidden">
+      <circle cx="400" cy="240" r="3.5" fill="#3b82f6" opacity="0.8" />
+      <circle cx="400" cy="240" r="14" fill="url(#glow)" opacity="0.35" />
+      <circle cx="370" cy="380" r="3" fill="#3b82f6" opacity="0.7" />
+      <circle cx="370" cy="380" r="10" fill="url(#glow)" opacity="0.25" />
+      <circle cx="420" cy="560" r="4" fill="#3b82f6" opacity="0.85" />
+      <circle cx="420" cy="560" r="16" fill="url(#glow)" opacity="0.4" />
+      <circle cx="200" cy="440" r="3" fill="#3b82f6" opacity="0.7" />
+      <circle cx="200" cy="440" r="10" fill="url(#glow)" opacity="0.25" />
+      <circle cx="580" cy="260" r="3" fill="#3b82f6" opacity="0.7" />
+      <circle cx="580" cy="260" r="10" fill="url(#glow)" opacity="0.25" />
+      <circle cx="700" cy="190" r="3.5" fill="#3b82f6" opacity="0.75" />
+      <circle cx="700" cy="190" r="14" fill="url(#glow)" opacity="0.35" />
+      <circle cx="780" cy="330" r="2.5" fill="#3b82f6" opacity="0.6" />
+      <circle cx="780" cy="330" r="8" fill="url(#glow)" opacity="0.2" />
+      <circle cx="650" cy="380" r="2.5" fill="#3b82f6" opacity="0.6" />
+      <circle cx="650" cy="380" r="8" fill="url(#glow)" opacity="0.2" />
+      <circle cx="490" cy="110" r="2.5" fill="#3b82f6" opacity="0.6" />
+      <circle cx="490" cy="110" r="8" fill="url(#glow)" opacity="0.2" />
+    </g>
+
+    <!-- Sagittarius Stars (dark mode) -->
+    <g class="sgr-pulse hidden dark:block">
+      <circle cx="400" cy="240" r="4.5" fill="#60a5fa" opacity="1" />
+      <circle cx="400" cy="240" r="24" fill="url(#glow-dark)" opacity="0.6" />
+      <circle cx="370" cy="380" r="4" fill="#60a5fa" opacity="0.9" />
+      <circle cx="370" cy="380" r="18" fill="url(#glow-dark)" opacity="0.5" />
+      <circle cx="420" cy="560" r="5" fill="#60a5fa" opacity="1" />
+      <circle cx="420" cy="560" r="28" fill="url(#glow-dark)" opacity="0.7" />
+      <circle cx="200" cy="440" r="4" fill="#60a5fa" opacity="0.9" />
+      <circle cx="200" cy="440" r="18" fill="url(#glow-dark)" opacity="0.5" />
+      <circle cx="580" cy="260" r="4" fill="#60a5fa" opacity="0.9" />
+      <circle cx="580" cy="260" r="18" fill="url(#glow-dark)" opacity="0.5" />
+      <circle cx="700" cy="190" r="4.5" fill="#60a5fa" opacity="1" />
+      <circle cx="700" cy="190" r="24" fill="url(#glow-dark)" opacity="0.6" />
+      <circle cx="780" cy="330" r="3" fill="#60a5fa" opacity="0.8" />
+      <circle cx="780" cy="330" r="12" fill="url(#glow-dark)" opacity="0.4" />
+      <circle cx="650" cy="380" r="3" fill="#60a5fa" opacity="0.8" />
+      <circle cx="650" cy="380" r="12" fill="url(#glow-dark)" opacity="0.4" />
+      <circle cx="490" cy="110" r="3" fill="#60a5fa" opacity="0.8" />
+      <circle cx="490" cy="110" r="12" fill="url(#glow-dark)" opacity="0.4" />
+    </g>
+
+    <!-- Sagittarius Star Labels -->
+    <g class="sgr-pulse hidden dark:block" font-family="system-ui" font-size="7" fill="#60a5fa" opacity="0.3" font-weight="500">
+      <text x="412" y="232">λ Sgr</text>
+      <text x="352" y="390">δ Sgr</text>
+      <text x="432" y="555">ε Sgr</text>
+      <text x="150" y="435">γ Sgr</text>
+      <text x="592" y="252">ζ Sgr</text>
+      <text x="665" y="182">σ Sgr</text>
+      <text x="680" y="395">φ Sgr</text>
+    </g>
+    <g class="sgr-pulse block dark:hidden" font-family="system-ui" font-size="7" fill="#3b82f6" opacity="0.4" font-weight="500">
+      <text x="412" y="232">λ Sgr</text>
+      <text x="352" y="390">δ Sgr</text>
+      <text x="432" y="555">ε Sgr</text>
+      <text x="150" y="435">γ Sgr</text>
+      <text x="592" y="252">ζ Sgr</text>
+      <text x="665" y="182">σ Sgr</text>
+      <text x="680" y="395">φ Sgr</text>
+    </g>
+
+    <!-- Subtle dot core at each Sagittarius star center -->
+    <g class="sgr-pulse hidden dark:block">
+      <circle cx="400" cy="240" r="1.2" fill="#bae6fd" opacity="0.9" />
+      <circle cx="370" cy="380" r="1" fill="#bae6fd" opacity="0.8" />
+      <circle cx="420" cy="560" r="1.5" fill="#bae6fd" opacity="0.9" />
+      <circle cx="200" cy="440" r="1" fill="#bae6fd" opacity="0.8" />
+      <circle cx="580" cy="260" r="1" fill="#bae6fd" opacity="0.8" />
+      <circle cx="700" cy="190" r="1.2" fill="#bae6fd" opacity="0.9" />
+      <circle cx="780" cy="330" r="0.8" fill="#bae6fd" opacity="0.7" />
+      <circle cx="650" cy="380" r="0.8" fill="#bae6fd" opacity="0.7" />
+      <circle cx="490" cy="110" r="0.8" fill="#bae6fd" opacity="0.7" />
+    </g>
+    </g>
+  </svg>
 </div>
