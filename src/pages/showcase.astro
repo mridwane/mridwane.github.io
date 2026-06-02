@@ -20,10 +20,30 @@ const vercelProjects = data.projects || [];
 const projects = vercelProjects.map((p: typeof vercelProjects[0]) => {
   const latestDep = p.latestDeployments?.[0];
   const url = latestDep?.alias?.[0] ? `https://${latestDep.alias[0]}` : latestDep?.url ? `https://${latestDep.url}` : '';
+
+  const lastUpdated = latestDep?.readyAt || latestDep?.createdAt;
+  let description = '';
+  if (lastUpdated) {
+    const diff = Date.now() - new Date(lastUpdated).getTime();
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor(diff / (1000 * 60));
+    if (days > 30) {
+      const months = Math.floor(days / 30);
+      description = `Updated ${months} month${months > 1 ? 's' : ''} ago`;
+    } else if (days > 0) {
+      description = `Updated ${days} day${days > 1 ? 's' : ''} ago`;
+    } else if (hours > 0) {
+      description = `Updated ${hours} hour${hours > 1 ? 's' : ''} ago`;
+    } else {
+      description = `Updated ${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    }
+  }
+
   return {
     title: p.name,
     src: url,
-    description: latestDep?.meta?.githubCommitMessage || 'Deployed on Vercel',
+    description,
     tags: [p.framework || 'Next.js'],
     liveUrl: url,
   };
