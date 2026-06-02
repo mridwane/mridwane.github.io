@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import aboutData from '../content/about.json';
+import aboutData from '../content/about.ts';
 import profileImage from '../assets/profile.png';
 ---
 
@@ -22,16 +22,16 @@ import profileImage from '../assets/profile.png';
       </div>
 
       <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl dark:shadow-blue-900/20 border border-slate-100 dark:border-blue-500/20 z-20" data-aos="zoom-in" data-aos-delay="500">
-        <span class="block text-3xl font-black text-blue-600 dark:text-blue-400">{aboutData.stats[0].value}</span>
-        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">{aboutData.stats[0].label}</span>
+        <span class="block text-3xl font-black text-blue-600 dark:text-blue-400">{new Date().getFullYear() - 2022}+</span>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Years Exp.</span>
       </div>
     </div>
 
     <div data-aos="fade-left" class="text-center md:text-left">
-      <h2 class="text-sm font-bold tracking-[0.4em] text-blue-600 dark:text-blue-400 uppercase mb-4">{aboutData.title}</h2>
+      <!-- <h2 class="text-sm font-bold tracking-[0.4em] text-blue-600 dark:text-blue-400 uppercase mb-4">{aboutData.title}</h2> -->
 
       <h3 class="text-4xl font-black mb-6 leading-tight text-slate-900 dark:text-white italic">
-        {aboutData.subtitle}
+        {aboutData.title}
       </h3>
 
       <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-lg">
@@ -40,7 +40,7 @@ import profileImage from '../assets/profile.png';
 
       <div class="flex justify-center md:justify-start w-full">
         <div class="flex gap-8 p-6 items-center bg-slate-50/50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800 w-fit">
-          {aboutData.stats.slice(1).map((stat, index) => (
+          {aboutData.stats.map((stat, index) => (
             <Fragment key={index}>
               <div class="text-left">
                 <p class="font-black text-2xl text-slate-900 dark:text-white">{stat.value}</p>
