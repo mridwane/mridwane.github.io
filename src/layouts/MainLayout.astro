@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import GridPattern from "../components/GridPattern.astro";
 
 interface Props {
   title?: string;
@@ -35,6 +36,7 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
     </script>
   </head>
   <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
+    <GridPattern />
     <slot />
     <script>
       import AOS from "aos";
