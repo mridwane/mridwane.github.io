@@ -3,13 +3,13 @@ export default [
     slug: "customer-complaint-management",
     title: "Customer Complaint Management System",
     shortDesc: "Transformasi Digital Penanganan Keluhan Pelanggan Berstandar ISO Melalui Kolaborasi Lintas Departemen.",
-    thumbnail: "/images/projects/CC/thumbnail-CC.png",
+    thumbnail: "/images/projects/CC/thumbnail-CC.webp",
     screenshots: [
-      "/images/projects/CC/CC 1.png",
-      "/images/projects/CC/CC 2.png",
-      "/images/projects/CC/CC 3.png",
-      "/images/projects/CC/CC 4.png",
-      "/images/projects/CC/CC 5.png"
+      "/images/projects/CC/CC 1.webp",
+      "/images/projects/CC/CC 2.webp",
+      "/images/projects/CC/CC 3.webp",
+      "/images/projects/CC/CC 4.webp",
+      "/images/projects/CC/CC 5.webp"
     ],
     tags: ["Laravel", "React", "MySQL", "ISO"],
     challenge: "- **Data Terfragmentasi**: Pengaduan dicatat secara manual dan tersebar di berbagai media, sehingga sulit untuk melacak status dan progres penyelesaian secara akurat.\n\n- **Kolaborasi Lintas Departemen yang Lemah**: Tidak adanya mekanisme formal untuk menugaskan investigasi antar departemen menyebabkan penanganan keluhan menjadi lambat dan tidak terkoordinasi.\n\n- **Risiko Kepatuhan (Compliance)**: Ketiadaan standar dokumentasi menghambat perusahaan dalam memenuhi persyaratan audit ISO, ditambah dengan proses pelaporan manual yang memakan waktu dan rentan kesalahan.",
@@ -55,14 +55,14 @@ export default [
     slug: "soa-management-system",
     title: "SOA Management System",
     shortDesc: "Digitalisasi Pengelolaan Piutang untuk Akselerasi Arus Kas dan Efisiensi Tim Finance.",
-    thumbnail: "/images/projects/SOA/thumbnail-SOA.png",
+    thumbnail: "/images/projects/SOA/thumbnail-SOA.webp",
     screenshots: [
-      "/images/projects/SOA/SOA 1.png",
-      "/images/projects/SOA/SOA 2.png",
-      "/images/projects/SOA/SOA 3.png",
-      "/images/projects/SOA/SOA 4.png",
-      "/images/projects/SOA/SOA 5.png",
-      "/images/projects/SOA/thumbnail-SOA.png"
+      "/images/projects/SOA/SOA 1.webp",
+      "/images/projects/SOA/SOA 2.webp",
+      "/images/projects/SOA/SOA 3.webp",
+      "/images/projects/SOA/SOA 4.webp",
+      "/images/projects/SOA/SOA 5.webp",
+      "/images/projects/SOA/thumbnail-SOA.webp"
     ],
     tags: ["Laravel", "React", "MySQL", "Finance"],
     challenge: "- **Proses Manual yang Tidak Efisien**: Pengolahan data piutang bulanan memakan banyak waktu karena dilakukan secara manual, mulai dari input data hingga distribusi ke pelanggan.\n\n- **Visibilitas Data Rendah**: Manajemen kesulitan memantau posisi piutang secara real-time, analisis penuaan piutang (aging analysis), maupun peringkat pelanggan dengan piutang terbesar.\n\n- **Data Terfragmentasi**: Informasi kontak pelanggan dan catatan khusus (memo) tersebar di berbagai file Excel yang terpisah, sehingga menyulitkan koordinasi dan penelusuran data.",
@@ -105,13 +105,13 @@ export default [
     slug: "stock-opname-enterprise",
     title: "Stock Opname Enterprise System",
     shortDesc: "Digitalisasi Inventaris Terpadu untuk Akurasi Stok Real-Time dan Kepatuhan Audit.",
-    thumbnail: "/images/projects/SO/thumbnail-SO.png",
+    thumbnail: "/images/projects/SO/thumbnail-SO.webp",
     screenshots: [
-      "/images/projects/SO/SO 1.png",
-      "/images/projects/SO/SO 2.png",
-      "/images/projects/SO/SO 3.png",
-      "/images/projects/SO/SO 4.png",
-      "/images/projects/SO/SO 5.png"
+      "/images/projects/SO/SO 1.webp",
+      "/images/projects/SO/SO 2.webp",
+      "/images/projects/SO/SO 3.webp",
+      "/images/projects/SO/SO 4.webp",
+      "/images/projects/SO/SO 5.webp"
     ],
     tags: ["Laravel", "React", "MySQL", "Enterprise"],
     challenge: "- **Fragmentasi Data & Proses Manual**: Data stok tersebar di berbagai sistem tanpa sumber tunggal (single source of truth), menyebabkan proses pencocokan stok (stocktaking) memakan waktu lama (5-7 hari) dan melibatkan koordinasi lintas departemen yang rumit.\n\n- **Risiko Human Error & Visibilitas Rendah**: Pencatatan manual memicu tingginya tingkat kesalahan input (mencapai 5%), sementara manajemen tidak memiliki akses real-time untuk memantau progres lapangan.\n\n- **Kendala Audit**: Pencatatan perubahan data tidak terstruktur, sehingga menyulitkan proses audit internal dan pembuatan laporan yang memakan waktu hingga 3 hari kerja.",
@@ -157,13 +157,13 @@ export default [
     slug: "shipment-status-tracking-system",
     title: "Shipment Status Tracking System",
     shortDesc: "Sistem pelacakan status pengiriman dengan audit trail lengkap, manajemen dokumen digital, dan workflow approval terstruktur untuk procurement-to-shipment process.",
-    thumbnail: "/images/projects/SS/thumbnail-SS.png",
+    thumbnail: "/images/projects/SS/thumbnail-SS.webp",
     screenshots: [
-      "/images/projects/SS/SS 1.png",
-      "/images/projects/SS/SS 2.png",
-      "/images/projects/SS/SS 3.png",
-      "/images/projects/SS/SS 4.png",
-      "/images/projects/SS/SS 5.png"
+      "/images/projects/SS/SS 1.webp",
+      "/images/projects/SS/SS 2.webp",
+      "/images/projects/SS/SS 3.webp",
+      "/images/projects/SS/SS 4.webp",
+      "/images/projects/SS/SS 5.webp"
     ],
     tags: ["Laravel", "React", "MySQL", "Inertia.js", "Radix UI"],
     challenge: "- **Tracking Manual yang Tidak Terstandarkan**: Status pengiriman tercatat di spreadsheet terpisah dan email, menyebabkan inkonsistensi data dan tanpa audit trail yang jelas.\n\n- **Dokumen Tersebar**: File-file purchase order, Bill of Lading, dan dokumen customs tersebar di email dan folder lokal, sulit untuk retrievals dan version control.\n\n- **Tidak Ada Visibilitas Lintas Departemen**: Procurement, logistics, warehouse, dan finance tidak memiliki visibility yang terpadu terhadap status shipment dari PR hingga penerimaan barang.\n\n- **Manual Sequence Generation**: Nomor PR dan PO dibuat manual, rentan terhadap duplikasi dan kesalahan input.\n\n- **Tidak Ada Role-Based Access Control**: Data procurement sensitif bisa diakses oleh pihak yang tidak berwenang.\n\n- **Reporting Manual untuk Management**: Proses pembuatan laporan untuk manajemen memakan waktu dan tidak real-time.",
@@ -220,13 +220,13 @@ export default [
     slug: "bma-cash-advance-management",
     title: "Cash Advance Management System",
     shortDesc: "Aplikasi web berbasis Laravel untuk mengelola proses permohonan uang muka (cash advance) dengan multi-level approval workflow yang terstandarisasi.",
-    thumbnail: "/images/projects/CA/thumbnail-CA.png",
+    thumbnail: "/images/projects/CA/thumbnail-CA.webp",
     screenshots: [
-      "/images/projects/CA/CA 1.png",
-      "/images/projects/CA/CA 2.png",
-      "/images/projects/CA/CA 3.png",
-      "/images/projects/CA/CA 4.png",
-      "/images/projects/CA/CA 5.png"
+      "/images/projects/CA/CA 1.webp",
+      "/images/projects/CA/CA 2.webp",
+      "/images/projects/CA/CA 3.webp",
+      "/images/projects/CA/CA 4.webp",
+      "/images/projects/CA/CA 5.webp"
     ],
     tags: ["Laravel", "Vue.js", "Inertia.js", "Tailwind CSS", "Flowbite", "MySQL", "Sanctum"],
     challenge: "- **Proses Manual yang Rentan Error**: Pengajuan uang muka berbasis kertas menyebabkan kehilangan dokumen dan kesalahan perhitungan.\n\n- **Tidak Ada Visibilitas Real-Time**: Karyawan dan manager tidak dapat melihat status permohonan secara langsung.\n\n- **Sulit Melacak Riwayat**: Tidak adanya jejak digital yang jelas untuk auditt dan compliance.\n\n- **Tidak Terstandarisasi**: Alur approval berbeda-beda tergantung peran tanpa matrix yang jelas.\n\n- **Settlement Tidak Terintegrasi**: Proses settlement dan pelaporan tidak terhubung dengan permohonan awal.",
@@ -285,13 +285,13 @@ export default [
     slug: "oncr-online-customer-registration",
     title: "ONCR - Online Customer Registration",
     shortDesc: "Sistem registrasi pelanggan online dengan verifikasi OTP email, dashboard manajemen terpusat, dan tracking real-time untuk proses onboarding pelanggan.",
-    thumbnail: "/images/projects/ONCR/thumbnail-ONCR.png",
+    thumbnail: "/images/projects/ONCR/thumbnail-ONCR.webp",
     screenshots: [
-      "/images/projects/ONCR/ONCR 1.png",
-      "/images/projects/ONCR/ONCR 2.png",
-      "/images/projects/ONCR/ONCR 3.png",
-      "/images/projects/ONCR/ONCR 4.png",
-      "/images/projects/ONCR/ONCR 5.png"
+      "/images/projects/ONCR/ONCR 1.webp",
+      "/images/projects/ONCR/ONCR 2.webp",
+      "/images/projects/ONCR/ONCR 3.webp",
+      "/images/projects/ONCR/ONCR 4.webp",
+      "/images/projects/ONCR/ONCR 5.webp"
     ],
     tags: [
       "Laravel",
@@ -361,12 +361,12 @@ export default [
     slug: "sample-management-system",
     title: "Sample Management System",
     shortDesc: "Sistem manajemen sampel produk untuk PT Behn Meyer Chemicals dengan real-time tracking, OTP email authentication, dan dashboard analitik komprehensif untuk aktivitas Sample In/Out.",
-    thumbnail: "/images/projects/sample-management/thumbnail.jpg",
+    thumbnail: "/images/projects/sample-management/thumbnail.webp",
     screenshots: [
-      "/images/projects/sample-management/screenshot-1.jpg",
-      "/images/projects/sample-management/screenshot-2.jpg",
-      "/images/projects/sample-management/screenshot-3.jpg",
-      "/images/projects/sample-management/screenshot-4.jpg"
+      "/images/projects/sample-management/screenshot-1.webp",
+      "/images/projects/sample-management/screenshot-2.webp",
+      "/images/projects/sample-management/screenshot-3.webp",
+      "/images/projects/sample-management/screenshot-4.webp"
     ],
     tags: [
       "CodeIgniter 3.x",
