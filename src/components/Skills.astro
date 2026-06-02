@@ -1,72 +1,68 @@
 ---
-import { skillsData } from '../data/skills';
-import { FaDatabase } from 'react-icons/fa';
+import { FaReact, FaServer, FaDatabase, FaDocker, FaFigma } from 'react-icons/fa';
+import { TbBrandNextjs, TbBrandVue, TbBrandTailwind } from 'react-icons/tb';
+import { SiInertia, SiAlpinedotjs, SiLivewire, SiLaravel, SiPhp, SiCodeigniter, SiMariadb, SiPostgresql, SiSupabase, SiLinux, SiGithubactions, SiGit, SiFigma } from 'react-icons/si';
+
+const categories = [
+  {
+    title: "Frontend",
+    Icon: FaReact,
+    skills: ["React.js", "Next.js", "Inertia.js", "Vue.js", "Tailwind CSS", "Alpine.js", "Livewire"]
+  },
+  {
+    title: "Backend",
+    Icon: SiLaravel,
+    skills: ["Laravel 10/11", "PHP", "CodeIgniter"]
+  },
+  {
+    title: "Database & Backend Services",
+    Icon: FaDatabase,
+    skills: ["MySQL", "MariaDB", "PostgreSQL", "Supabase"]
+  },
+  {
+    title: "DevOps & Infrastructure",
+    Icon: FaDocker,
+    skills: ["Linux (Fedora, Arch, Ubuntu/Debian)", "Docker", "CI/CD (GitHub Actions)"]
+  },
+  {
+    title: "Design & Tools",
+    Icon: FaFigma,
+    skills: ["Figma", "UI/UX Design", "Git", "AI Agents"]
+  }
+];
 ---
 
 <section id="skills" class="max-w-6xl mx-auto px-6 py-24 border-t border-slate-100 dark:border-slate-900">
-  <div class="mb-16 text-center md:text-left" data-aos="fade-right">
-    <h2 class="text-sm font-bold tracking-[0.4em] text-blue-600 dark:text-blue-400 uppercase mb-2">Technical Arsenal</h2>
-    <h3 class="text-4xl font-black italic text-slate-900 dark:text-white">Senjata & Keahlian.</h3>
+  <div class="mb-14 text-center md:text-left" data-aos="fade-right">
+    <h2 class="text-sm font-bold tracking-[0.3em] text-blue-600 dark:text-blue-400 uppercase mb-2">Keterampilan Teknis</h2>
+    <h3 class="text-4xl font-black text-slate-900 italic dark:text-white">Tech Stack & Keahlian.</h3>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[minmax(120px,_auto)]">
-
-    <div class="md:col-span-2 md:row-span-3 bg-gradient-to-br from-blue-600 to-indigo-700 dark:from-blue-700 dark:to-indigo-900 rounded-2xl p-8 text-white relative overflow-hidden group shadow-2xl shadow-blue-500/20" data-aos="zoom-in">
-      <div class="relative z-10 flex flex-col h-full justify-between">
-        <div>
-          <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest">{skillsData.mainFocus.label}</span>
-          <h3 class="text-4xl font-black mt-4 mb-2 tracking-tighter" set:html={skillsData.mainFocus.title.replace('&', '<br />&')} />
-          <p class="text-blue-100 dark:text-blue-200 text-base leading-relaxed max-w-xs">{skillsData.mainFocus.desc}</p>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+    {categories.map((cat, index) => (
+      <div
+        class="group relative p-6 md:p-7 bg-white dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/60 rounded-2xl hover:border-blue-500/20 hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
+        class:list={{ "xl:col-span-2": index === 0 }}
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+            <cat.Icon class="text-base" />
+          </div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            {cat.title}
+          </h3>
         </div>
-        <div class="flex gap-3 mt-8">
-          {skillsData.mainFocus.tags.map((tag) => (
-            <div class="px-4 py-2 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 font-bold text-sm uppercase">{tag}</div>
+
+        <div class="flex flex-wrap gap-2">
+          {cat.skills.map((skill) => (
+            <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-[10px] font-bold rounded-lg uppercase tracking-wide border border-transparent group-hover:border-slate-200 dark:group-hover:border-slate-700 hover:!bg-blue-500 hover:!text-white hover:!border-blue-500 transition-all duration-200 cursor-default">
+              {skill}
+            </span>
           ))}
         </div>
-      </div>
-      <skillsData.mainFocus.Icon size={180}  className="absolute -bottom-10 -right-10 opacity-10 group-hover:rotate-12 transition-transform duration-700 pointer-events-none" />
-    </div>
-
-    <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-2xl p-8" data-aos="zoom-in" data-aos-delay="100">
-      <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-slate-900 dark:text-white">
-        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span> Frontend Ecosystem
-      </h3>
-      <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-sm font-bold uppercase tracking-tight text-slate-600 dark:text-slate-400">
-        {skillsData.frontend.map((item) => (
-          <div class={`flex items-center gap-3 transition-colors cursor-default ${item.hover}`}>
-            <item.Icon size={18} /> {item.name}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {skillsData.design.map((item, index) => (
-      <div class={`md:col-span-1 ${item.bg} border ${item.border} rounded-2xl p-6 flex flex-col justify-between group ${item.hover} transition-all`} data-aos="zoom-in" data-aos-delay={200 + (index * 100)}>
-        <item.Icon size={item.sizeIcon} className="group-hover:rotate-12 transition" />
-        <h4 class={`font-bold ${item.text}`}>{item.name}</h4>
       </div>
     ))}
-
-  <div class="md:col-span-2 md:row-span-2 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/10 rounded-2xl p-8 overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
-      <div class="relative z-20 text-slate-600">
-        <h3 class="text-2xl font-bold mb-6 dark:text-white">Operations</h3>
-        <div class="grid grid-cols-2 gap-y-4 gap-x-6 text-sm font-bold uppercase tracking-tight text-slate-600 dark:text-slate-400">
-          {skillsData.ops.map((op) => (
-             <div class={`flex items-center gap-3 transition-colors cursor-default ${op.hover}`}>
-                <op.Icon size={16} /> {op.name}
-            </div>
-          ))}
-        </div>
-      </div>
-      <span class="absolute -bottom-5 -right-5 text-8xl opacity-10 font-black text-slate-500 uppercase italic pointer-events-none">Root</span>
-    </div>
-
-    <div class="md:col-span-2 bg-slate-100 dark:bg-slate-900 border border-transparent dark:border-slate-800 rounded-2xl p-6 flex items-center justify-between group" data-aos="zoom-in" data-aos-delay="500">
-      <span class="text-[10px] font-black uppercase opacity-60 dark:opacity-40 tracking-widest text-slate-600 dark:text-slate-400">
-        Database: {skillsData.database}
-      </span>
-      <FaDatabase size={14} className="opacity-40" />
-    </div>
-
   </div>
 </section>
