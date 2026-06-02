@@ -143,8 +143,9 @@ const menuItems: MenuItem[] = [
     }
 
     if (path === '/') {
-      if (hash && ['/#about', '/#skills', '/#experience'].includes(hash)) {
-        setActive(hash);
+      const navHash = hash ? `/${hash}` : null;
+      if (navHash && ['/#about', '/#skills', '/#experience'].includes(navHash)) {
+        setActive(navHash);
         return;
       }
       setActive(null);
