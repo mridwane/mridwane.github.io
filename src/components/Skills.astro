@@ -39,7 +39,7 @@ const categories = [
   <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
     {categories.map((cat, index) => (
       <div
-        class="group relative p-6 md:p-7 bg-white dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/60 rounded-2xl hover:border-blue-500/30 hover:bg-white/80 dark:hover:bg-slate-900/80 hover:backdrop-blur-xl transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1"
+        class="group relative p-6 md:p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-blue-500/20 transition-all duration-300 hover:-translate-y-1"
         class:list={{ "xl:col-span-2": index === 0 }}
         data-aos="fade-up"
         data-aos-delay={index * 100}
