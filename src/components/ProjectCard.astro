@@ -1,16 +1,5 @@
 ---
-interface Props {
-  title: string;
-  description?: string;
-  src: string;
-  tags?: string[];
-  liveUrl?: string;
-  detailUrl?: string;
-  delay?: number;
-  aspectRatio?: '16/9' | '4/3' | '16/10';
-  loading?: 'eager' | 'lazy';
-  scale?: number;
-}
+import type { ProjectCardProps } from '../types/project-card';
 
 const {
   title,
@@ -22,7 +11,7 @@ const {
   delay = 0,
   loading = 'lazy',
   scale = 0.3
-} = Astro.props;
+} = Astro.props as ProjectCardProps;
 
 const cleanedSrc = src.replace(/\?.*$/, '') + '?utm_source=portfolio';
 ---
