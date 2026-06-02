@@ -16,7 +16,7 @@ const menuItems: MenuItem[] = [
 ];
 ---
 <nav class="fixed top-0 w-screen z-50 transition-all duration-300">
-  <div class="absolute inset-0 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-blue-500/10 shadow-sm"></div>
+  <div class="absolute inset-0 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-blue-500/10"></div>
 
   <div class="relative max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <a href="/" class="text-xl font-black tracking-tighter uppercase italic group">
@@ -28,9 +28,9 @@ const menuItems: MenuItem[] = [
     <div class="flex items-center gap-4">
       <div class="hidden md:flex gap-8 text-[10px] font-semibold uppercase tracking-[0.2em]">
         {menuItems.map((item) => (
-          <a href={item.url} class="relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
+          <a href={item.url} data-nav={item.url} class="nav-link relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
             {item.label}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(37,99,235,0.6)]"></span>
+            <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(37,99,235,0.6)]"></span>
           </a>
         ))}
       </div>
@@ -50,7 +50,7 @@ const menuItems: MenuItem[] = [
   <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center md:hidden">
     <div class="flex flex-col gap-8 text-center">
       {menuItems.map((item) => (
-        <a href={item.url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a href={item.url} data-nav={item.url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           {item.label}
         </a>
       ))}
@@ -63,6 +63,7 @@ const menuItems: MenuItem[] = [
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
   const spans = menuBtn?.querySelectorAll('span');
+  const navLinks = document.querySelectorAll('[data-nav]');
   let isMenuOpen = false;
   let previousOverflow = '';
 
@@ -112,6 +113,83 @@ const menuItems: MenuItem[] = [
     }
     lastScroll = currentScroll;
   }, { passive: true });
+
+  function setActive(activeUrl) {
+    navLinks.forEach(link => {
+      const linkUrl = link.getAttribute('data-nav');
+      const isActive = activeUrl !== null && linkUrl === activeUrl;
+      link.classList.toggle('text-blue-600', isActive);
+      link.classList.toggle('dark:text-blue-400', isActive);
+      link.classList.toggle('text-slate-600', !isActive);
+      link.classList.toggle('dark:text-slate-400', !isActive);
+    });
+  }
+
+  function updateActive() {
+    const path = window.location.pathname;
+    const hash = window.location.hash;
+
+    if (path === '/project' || path.startsWith('/project/')) {
+      setActive('/project');
+      return;
+    }
+    if (path === '/showcase') {
+      setActive('/showcase');
+      return;
+    }
+    if (path === '/kontak') {
+      setActive('/kontak');
+      return;
+    }
+
+    if (path === '/') {
+      if (hash && ['/#about', '/#skills', '/#experience'].includes(hash)) {
+        setActive(hash);
+        return;
+      }
+      setActive(null);
+      return;
+    }
+
+    setActive(null);
+  }
+
+  updateActive();
+
+  if (window.location.pathname === '/') {
+    const sectionIds = ['about', 'skills', 'experience'];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    function checkActiveSection() {
+      const offset = window.innerHeight * 0.35;
+      const scrollTop = window.scrollY + offset;
+      let activeId = null;
+
+      for (const el of sections) {
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (scrollTop >= top && scrollTop < bottom) {
+          activeId = el.id;
+          break;
+        }
+      }
+
+      setActive(activeId ? `/#${activeId}` : null);
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { ticking = false; checkActiveSection(); });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    checkActiveSection();
+  }
+
+  window.addEventListener('popstate', updateActive);
+  window.addEventListener('hashchange', updateActive);
 </script>
 
 <style>
