@@ -2,51 +2,64 @@
 import { Image } from 'astro:assets';
 import aboutData from '../content/about.ts';
 import profileImage from '../assets/profile.webp';
+import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
 ---
 
 <section id="about" class="max-w-5xl mx-auto px-6 py-24 border-t border-slate-100 dark:border-slate-900">
-  <div class="mb-14" data-aos="fade-right">
+  <div class="mb-14 text-center md:text-left" data-aos="fade-right">
     <h2 class="text-sm font-bold tracking-[0.3em] text-blue-600 dark:text-blue-400 uppercase mb-2">Ringkasan</h2>
     <h3 class="text-4xl font-black text-slate-900 italic dark:text-white">Tentang Saya.</h3>
   </div>
 
-  <div class="grid md:grid-cols-12 gap-10 md:gap-14" data-aos="fade-up">
-    <div class="md:col-span-5 flex justify-center md:justify-start">
-      <div class="relative group">
-        <div class="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-          <Image
-            src={profileImage}
-            alt="Foto Profil"
-            width={600}
-            height={600}
-            format="avif"
-            quality="high"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        </div>
-        <div class="absolute -bottom-3 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600/60 to-cyan-500/60 rounded-full"></div>
-      </div>
-    </div>
+  <div class="group relative bg-white dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/60 rounded-2xl hover:border-blue-500/20 hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition-all duration-300 shadow-sm hover:shadow-md" data-aos="fade-up">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-600/40 to-transparent dark:via-blue-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-    <div class="md:col-span-7 flex flex-col justify-center">
-      <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 dark:text-blue-400 mb-3 block text-center md:text-left">Fullstack Developer</span>
-
-      <h3 class="text-3xl md:text-4xl font-black mb-5 leading-tight text-slate-900 dark:text-white text-center md:text-left">
-        {aboutData.title}
-      </h3>
-
-      <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-base text-center md:text-left">
-        {aboutData.description}
-      </p>
-
-      <div class="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-        {aboutData.stats.map((stat, index) => (
-          <div key={index} class="flex items-center gap-3">
-            <span class="text-2xl font-black text-slate-900 dark:text-white tabular-nums">{stat.value}</span>
-            <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">{stat.label}</span>
-            {index === 0 && <span class="text-slate-200 dark:text-slate-700">/</span>}
+    <div class="grid md:grid-cols-12 gap-0">
+      <div class="md:col-span-5 p-8 md:p-10 flex items-center justify-center" data-aos="zoom-in">
+        <div class="relative">
+          <div class="w-56 h-56 md:w-60 md:h-60 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+            <Image
+              src={profileImage}
+              alt="Foto Profil"
+              width={600}
+              height={600}
+              format="avif"
+              quality="high"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
-        ))}
+
+          <div class="absolute -bottom-3 -right-3 bg-white dark:bg-slate-800 px-4 py-3 rounded-xl shadow-lg dark:shadow-blue-900/20 border border-slate-100 dark:border-blue-500/20">
+            <span class="block text-xl font-black text-blue-600 dark:text-blue-400">{new Date().getFullYear() - 2022}+</span>
+            <span class="text-[8px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Tahun</span>
+          </div>
+
+          <div class="absolute -top-3 -left-3 w-full h-full rounded-2xl border-2 border-slate-100 dark:border-slate-800 -z-10 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 md:border-l border-slate-100 dark:border-slate-800/60 p-8 md:p-10 flex flex-col justify-center">
+        <span class="flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+          <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 dark:text-blue-400">Fullstack Developer</span>
+        </span>
+
+        <h3 class="text-3xl md:text-4xl font-black mb-5 leading-tight text-slate-900 dark:text-white">
+          {aboutData.title}
+        </h3>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-base max-w-2xl">
+          {aboutData.description}
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          {aboutData.stats.map((stat, index) => (
+            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-[10px] font-bold rounded-xl uppercase tracking-wider border border-transparent group-hover:border-slate-200 dark:group-hover:border-slate-700 hover:!bg-blue-500 hover:!text-white hover:!border-blue-500 transition-all duration-200 cursor-default flex items-center gap-2">
+              {index === 0 ? <FaProjectDiagram class="text-[10px]" /> : <FaHandshake class="text-[10px]" />}
+              {stat.value} {stat.label}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   </div>
