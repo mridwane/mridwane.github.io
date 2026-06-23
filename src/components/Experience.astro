@@ -5,7 +5,7 @@ import { FaBuilding } from 'react-icons/fa';
 
 <section id="experience" class="max-w-5xl mx-auto px-6 py-24 border-t border-slate-100 dark:border-slate-900">
   <div class="mb-12 text-center md:text-left" data-aos="fade-right">
-    <h3 class="text-4xl font-black text-slate-900 italic dark:text-white">Pengalaman.</h3>
+    <h3 data-i18n="experience.section_title" class="text-4xl font-black text-slate-900 italic dark:text-white">Experience.</h3>
   </div>
 
   <div class="relative">
@@ -36,7 +36,7 @@ import { FaBuilding } from 'react-icons/fa';
               </div>
             </div>
 
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-6 max-w-3xl">
+            <p data-i18n={`experience.item.${index}.desc`} class="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-6 max-w-3xl">
               {item.desc}
             </p>
 

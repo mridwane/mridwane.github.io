@@ -7,7 +7,7 @@ import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
 
 <section id="about" class="max-w-5xl mx-auto px-6 py-24 border-t border-slate-100 dark:border-slate-900">
   <div class="mb-14 text-center md:text-left" data-aos="fade-right">
-    <h3 class="text-4xl font-black text-slate-900 italic dark:text-white">Tentang Saya.</h3>
+    <h3 data-i18n="about.section_title" class="text-4xl font-black text-slate-900 italic dark:text-white">About Me.</h3>
   </div>
 
   <div class="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl hover:border-blue-500/20 transition-all duration-300" data-aos="fade-up">
@@ -20,7 +20,7 @@ import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
         <div class="w-56 h-56 md:w-60 md:h-60 rounded-2xl overflow-hidden transition-all duration-300">
             <Image
               src={profileImage}
-              alt="Foto Profil"
+              alt="Profile Photo" data-i18n="about.profile_alt"
               width={600}
               height={600}
               format="avif"
@@ -31,7 +31,7 @@ import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
 
           <div class="absolute -bottom-3 -right-3 bg-white dark:bg-slate-800 px-4 py-3 rounded-xl shadow-lg dark:shadow-blue-900/20 border border-slate-100 dark:border-blue-500/20">
             <span class="block text-xl font-black text-blue-600 dark:text-blue-400">{new Date().getFullYear() - 2022}+</span>
-            <span class="text-[8px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Tahun</span>
+            <span class="text-[8px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500" data-i18n="about.years_label">Years</span>
           </div>
 
           <div class="absolute -top-3 -left-3 w-full h-full rounded-2xl border-2 border-slate-100 dark:border-slate-800 -z-10 group-hover:-translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></div>
@@ -44,11 +44,11 @@ import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
           <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-blue-600 dark:text-blue-400">Fullstack Developer</span>
         </span>
 
-        <h3 class="text-3xl md:text-4xl font-black mb-5 leading-tight text-slate-900 dark:text-white">
+        <h3 data-i18n="about.data_title" class="text-3xl md:text-4xl font-black mb-5 leading-tight text-slate-900 dark:text-white">
           {aboutData.title}
         </h3>
 
-        <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-base max-w-2xl">
+        <p data-i18n="about.data_description" class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-base max-w-2xl">
           {aboutData.description}
         </p>
 
@@ -61,7 +61,7 @@ import { FaProjectDiagram, FaHandshake } from 'react-icons/fa';
                 </div>
                 <div>
                   <p class="text-2xl font-black text-slate-900 dark:text-white">{stat.value}</p>
-                  <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">{stat.label}</p>
+                  <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500" data-i18n={`about.stats_${index === 0 ? 'projects' : 'commitment'}`}>{stat.label}</p>
                 </div>
               </div>
             </div>

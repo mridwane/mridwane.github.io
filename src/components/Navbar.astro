@@ -1,18 +1,20 @@
 ---
 import { ModeToggle } from "./ModeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 
 interface MenuItem {
   label: string;
   url: string;
+  i18nKey: string;
 }
 
 const menuItems: MenuItem[] = [
-  { label: 'Tentang', url: '/#about' },
-  { label: 'Keahlian', url: '/#skills' },
-  { label: 'Pengalaman', url: '/#experience' },
-  { label: 'Project', url: '/project' },
-  { label: 'Showcase', url: '/showcase' },
-  { label: 'Kontak', url: '/kontak' },
+  { label: 'About', url: '/#about', i18nKey: 'nav.about' },
+  { label: 'Skills', url: '/#skills', i18nKey: 'nav.skills' },
+  { label: 'Experience', url: '/#experience', i18nKey: 'nav.experience' },
+  { label: 'Projects', url: '/project', i18nKey: 'nav.project' },
+  { label: 'Showcase', url: '/showcase', i18nKey: 'nav.showcase' },
+  { label: 'Contact', url: '/kontak', i18nKey: 'nav.contact' },
 ];
 ---
 <nav class="fixed top-0 w-screen z-50 transition-all duration-300">
@@ -28,14 +30,15 @@ const menuItems: MenuItem[] = [
     <div class="flex items-center gap-4">
       <div class="hidden md:flex gap-8 text-[10px] font-semibold uppercase tracking-[0.2em]">
         {menuItems.map((item) => (
-          <a href={item.url} data-nav={item.url} class="nav-link relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
+          <a href={item.url} data-nav={item.url} data-i18n={item.i18nKey} class="nav-link relative text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 group">
             {item.label}
             <span class="nav-indicator absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300 group-hover:w-full shadow-[0_0_8px_rgba(37,99,235,0.6)]"></span>
           </a>
         ))}
       </div>
 
-      <div class="flex items-center pl-6 border-l border-slate-200 dark:border-slate-800">
+      <div class="flex items-center gap-2 pl-6 border-l border-slate-200 dark:border-slate-800">
+        <LanguageToggle client:visible />
         <ModeToggle client:visible />
       </div>
 
@@ -50,7 +53,7 @@ const menuItems: MenuItem[] = [
   <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center md:hidden">
     <div class="flex flex-col gap-8 text-center">
       {menuItems.map((item) => (
-        <a href={item.url} data-nav={item.url} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <a href={item.url} data-nav={item.url} data-i18n={item.i18nKey} class="mobile-link text-2xl font-bold uppercase tracking-widest text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           {item.label}
         </a>
       ))}

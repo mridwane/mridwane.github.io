@@ -10,7 +10,7 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +33,13 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
           }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
         }
       })();
+
+      (function() {
+        if (typeof localStorage !== 'undefined') {
+          var lang = localStorage.getItem('lang') || 'en';
+          document.documentElement.lang = lang;
+        }
+      })();
     </script>
   </head>
   <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased">
@@ -40,6 +47,7 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
     <slot />
     <script>
       import AOS from "aos";
+      import { translations, type Lang } from "../i18n/translations";
 
       AOS.init({
         once: false,
@@ -56,6 +64,44 @@ const { title = "mridwane | Fullstack Developer" } = Astro.props;
       window.addEventListener('theme-toggle', () => {
         setTimeout(() => AOS.refresh(), 150);
       });
+
+      function applyTranslations() {
+        const lang = (localStorage.getItem('lang') || 'en') as Lang;
+        const elements = document.querySelectorAll('[data-i18n]');
+
+        elements.forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (!key) return;
+          const translation = translations[key]?.[lang];
+          if (!translation) return;
+
+          let text = translation;
+          if (text.includes('{yearsExp}')) {
+            const startYear = 2022;
+            const yearsExp = new Date().getFullYear() - startYear;
+            text = text.replace(/\{yearsExp\}/g, String(yearsExp));
+          }
+
+          if (text.includes('<')) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        });
+
+        const timeElements = document.querySelectorAll('[data-i18n-time]');
+        timeElements.forEach((el) => {
+          const count = el.getAttribute('data-count');
+          const unit = el.getAttribute('data-unit');
+          if (!count || !unit) return;
+          const updateText = lang === 'id' ? 'Diperbarui' : 'Updated';
+          const agoText = lang === 'id' ? 'lalu' : 'ago';
+          el.textContent = `${updateText} ${count} ${unit} ${agoText}`;
+        });
+      }
+
+      applyTranslations();
+      window.addEventListener('language-toggle', applyTranslations);
     </script>
   </body>
 </html>

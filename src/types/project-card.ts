@@ -8,4 +8,6 @@ export interface ProjectCardProps {
   delay?: number;
   scale?: number;
   loading?: 'eager' | 'lazy';
+  timeCount?: string;
+  timeUnit?: string;
 }
